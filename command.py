@@ -5,7 +5,7 @@ import serial
 from time import sleep
 from camera import Camera
 from keys import Button, press, pressRep
-from notify import send_shiny
+from notify import send_capture
 
 def reset(ser):
     print('リセットします.')
@@ -258,7 +258,7 @@ def command(camera, ser):
                         if camera.isContainTemplate('ShineMark.png', 1.01): # 色違いマーク確認
                             print("色違い")
                             camera.readFrame()
-                            send_shiny(camera)
+                            send_capture(camera, '色違い')
                             if count == 0 and match> 4: # ボスが色違いの時
                                 print(lap, "周、ボスを倒した回数", wincount, "回")
                                 return True
@@ -289,6 +289,7 @@ def command(camera, ser):
                 taiki += 1
                 if taiki == 28 or tarn == 30:
                     print("どこかで止まりました")
+                    send_capture(camera, 'ERROR')
                     reset(ser)
                     return False
                 print("待機中", taiki)
