@@ -68,3 +68,10 @@ Windowsにおける準備を記述します. その他OSについては適当に
 ##### 画像認識設定
 
 * 画像認識がうまくいかない場合は, 使用しているキャプチャボードの違いによると考えられる. 適当に`camera.isContainTemplate()`メソッドの引数に渡す閾値を調整するか, `autoDA/Templates`中の画像を適当に置き換えることで何とかなる.
+
+### 参考にしたもの
+
+このスクリプトの作成にあたり, 下記の記事を参考にしました.
+
+* [ダイマックスアドベンチャー色粘りの自動化](https://glaceonlove.hateblo.jp/entry/2020/11/29/145046)
+* [Poke-Controller](https://github.com/KawaSwitch/Poke-Controller)
